@@ -1,7 +1,8 @@
-# Vue3 + Vite + Vue-Router 4.x + Vuex 4.x + Element-Plus + Axios + Mockjs 项目搭建
+## 项目结构预览
+
+![项目结构预览](./src/assets/imgs/overview.png)
 
 ## Vite配置
-
 1. 配置 base 公共基础路径， `vite.config.js`
 
 ```javascript
@@ -25,7 +26,6 @@ export default defineConfig({
 })
 
 ```
-
 3. 配置 proxy 代理， `vite.config.js`
 
 ```javascript
@@ -42,11 +42,9 @@ export default defineConfig({
 
 ```
 
-
-
 ## eslint
 
-首先在项目安装依赖
+1. 首先在项目安装依赖
 
 `yarn add @vue/eslint-config-prettier babel-eslint eslint eslint-plugin-prettier eslint-plugin-vue prettier -D`
 
@@ -68,7 +66,7 @@ export default defineConfig({
 }
 ```
 
-然后配置`lint`规则，`.eslintrc.js`
+2. 配置`lint`规则，`.eslintrc.js`
 
 ```javascript
 module.exports = {
@@ -96,7 +94,7 @@ module.exports = {
 
 ```
 
-然后修`prettier`的默认格式化规则，`prettier.config.js`
+3. 修改`prettier`的默认格式化规则，`prettier.config.js`
 
 ```javascript
 module.exports = {
@@ -109,7 +107,7 @@ module.exports = {
 
 ```
 
-根目录下新建`.vscode/settings.json`
+4. 根目录下新建`.vscode/settings.json`
 
 ```
 {
@@ -139,11 +137,9 @@ module.exports = {
 
 ```
 
-
-
 ## Vue-Router 4.x
 
-安装依赖，`yarn add vue-router@4`，`package.json`
+1. 安装依赖，`yarn add vue-router@4`，`package.json`
 
 ```json
 {
@@ -154,7 +150,7 @@ module.exports = {
 
 ```
 
-在src目录创建router文件夹，在文件夹中创建index.js文件，`router/routes.js`
+2. 在src目录创建router文件夹，在文件夹中创建index.js文件，`router/routes.js`
 
 ```javascript
 import Home from '@/pages/Home.vue'
@@ -166,7 +162,7 @@ export default [
 
 ```
 
-在src目录创建`router`文件夹，在文件夹中创建`index.js`文件，`router/index.js`
+3. 在src目录创建`router`文件夹，在文件夹中创建`index.js`文件，`router/index.js`
 
 ```javascript
 import { createRouter, createWebHashHistory } from 'vue-router'
@@ -179,7 +175,7 @@ export default createRouter({
 
 ```
 
-`src/App.vue`，添加<router-view>
+4. `src/App.vue`，添加`<router-view>`
 
 ```vue
 <template>
@@ -188,7 +184,7 @@ export default createRouter({
 
 ```
 
-`src/main.js`，use(router)
+5. `src/main.js`，`use(router)`
 
 ```javascript
 import { createApp } from 'vue'
@@ -199,11 +195,9 @@ createApp(App).use(router).mount('#app')
 
 ```
 
-
-
 ## Vuex 4.x
 
-安装依赖，`yarn add vuex@next`，`package.json`
+1. 安装依赖，`yarn add vuex@next`，`package.json`
 
 ```json
 {
@@ -214,7 +208,7 @@ createApp(App).use(router).mount('#app')
 
 ```
 
-在src目录创建`store`文件夹，在文件夹中创建`index.js`文件，`store/index.js`
+2. 在src目录创建`store`文件夹，在文件夹中创建`index.js`文件，`store/index.js`
 
 ```javascript
 import { createStore } from 'vuex'
@@ -240,7 +234,7 @@ export default createStore({
 
 ```
 
-`main.js`中引入`store`，`main.js`
+3. `main.js`中引入`store`，`main.js`
 
 ```javascript
 import { createApp } from 'vue'
@@ -251,7 +245,7 @@ createApp(App).use(store).mount('#app')
 
 ```
 
-组件中使用，使用 `useStore()`  获取实例
+4. 组件中使用，使用 `useStore()`  获取实例
 
 ```vue
 <template>
@@ -277,11 +271,9 @@ const incrementDispatch =()=>{
 
 ```
 
-
-
 ## Element-Plus
 
-安装依赖，`yarn add element-plus`，`package.json`
+1. 安装依赖，`yarn add element-plus`，`package.json`
 
 ```json
 {
@@ -292,7 +284,7 @@ const incrementDispatch =()=>{
 
 ```
 
-`main.js`中引入，`main.js`
+2. `main.js`中引入，`main.js`
 
 ```javascript
 import { createApp } from 'vue'
@@ -305,11 +297,9 @@ createApp(App).use(ElementPlus).mount('#app')
 
 ```
 
-
-
 ## Axios
 
-安装依赖，`yarn add axios`，`package.json`
+1. 安装依赖，`yarn add axios`，`package.json`
 
 ```json
 {
@@ -320,7 +310,7 @@ createApp(App).use(ElementPlus).mount('#app')
 
 ```
 
-新建`api`文件夹，新建`api/instance.js`
+2. 新建`api`文件夹，新建`api/instance.js`
 
 ```javascript
 import axios from 'axios'
@@ -427,7 +417,7 @@ export default instance;
 
 ```
 
-新建`api/http.js`
+3. 新建`api/http.js`
 
 ```javascript
 import instance from "./instance"
@@ -468,7 +458,7 @@ export default ({
 
 ```
 
-新建`index.js`
+4. 新建`index.js`
 
 ```javascript
 import http from "./http"
@@ -490,7 +480,7 @@ export default{
 
 ```
 
-组件中调用接口
+5. 组件中调用接口
 
 ```javascript
 <script setup>
@@ -505,14 +495,11 @@ try {
 
 </script>
 
-
 ```
-
-
 
 ## Mockjs
 
-安装依赖，`package.json`
+1. 安装依赖，`package.json`
 
 `yarn add mockjs` 
 
@@ -530,7 +517,7 @@ try {
 
 ```
 
- `vite.config.js`
+2.  `vite.config.js`
 
 ```javascript
 import { viteMockServe } from 'vite-plugin-mock'
@@ -551,7 +538,7 @@ export default ({ command }) => {
 
 ```
 
-在项目根目录创建mock文件夹，在文件夹中创建test.js文件，`mock/test.js`
+3. 在项目根目录创建mock文件夹，在文件夹中创建test.js文件，`mock/test.js`
 
 ```javascript
 export default [
@@ -598,7 +585,7 @@ export default [
 
 ```
 
-组件中使用 fetch 测试
+4. 组件中使用 fetch 测试
 
 ```vue
 <script setup>
@@ -610,4 +597,3 @@ fetch('/api/get').then(res => {
 </script>
 
 ```
-
