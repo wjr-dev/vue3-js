@@ -1,5 +1,6 @@
 ## 项目结构预览
 
+[源码地址](https://github.com/wjr-dev/vue3-js)
 ![项目结构预览](./src/assets/imgs/overview.png)
 
 ## Vite配置
