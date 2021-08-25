@@ -13,8 +13,8 @@ module.exports = {
     "prettier/prettier": [
       "warn",
       {
-        // singleQuote: none,
-        // semi: false,
+        singleQuote: none,
+        semi: false,
         trailingComma: "es5",
       },
     ],

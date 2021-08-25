@@ -1,0 +1,45 @@
+{
+  // VScode主题配置
+  "editor.tabSize": 2,
+  "editor.lineHeight": 24,
+  // 多行注释合并
+  "commentTranslate.multiLineMerge": true,
+  // 注释采用简洁模式
+  "commentTranslate.concise": true,
+  // 头部注释默认字段
+  "fileheader.customMade": {
+    "Author": "your name",
+    "Date": "Do not edit", // 设置后默认设置文件生成时间
+    "LastEditTime": "Do not edit", // 设置后，保存文件更改默认更新最后编辑时间
+    "LastEditors": "your name", // 设置后，保存文件更改默认更新最后编辑人
+    "Description": "",
+    "FilePath": "Do not edit", // 设置后，默认生成文件相对于项目的路径
+    "custom_string_obkoro1": "可以输入预定的版权声明、个性签名、空行等"
+  },
+  // 函数注释
+  "fileheader.cursorMode": {
+    // 默认字段
+    "description": "",
+    "param": "",
+    "return": ""
+  },
+  "javascript.updateImportsOnFileMove.enabled": "always", // 移动文件或者修改文件名时，是否自动更新引用了此文件的所有文件。
+  // 每次保存是否自动格式化文件
+  "editor.formatOnSave": false,
+  // 每次保存的时候将代码按格式进行修复
+  "editor.codeActionsOnSave": {
+    // 自动引入缺少的库
+    "source.addMissingImports": true,
+    // 为代码及Eslint添加自动修复功能
+    "source.fixAll": true,
+    "source.fixAll.eslint": true
+  },
+  // 针对.vue、.ts 和 .tsx 文件开启 ESLint 的 autoFix
+  "eslint.validate": [
+    "javascript",
+    "javascriptreact",
+    "vue",
+    "typescript",
+    "typescriptreact"
+  ]
+}
