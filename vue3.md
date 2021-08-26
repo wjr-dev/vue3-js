@@ -4,6 +4,54 @@
 ![项目结构预览](./src/assets/imgs/overview.png)
 
 ## Vite配置
+
+配置预览
+
+```javascript
+// import { defineConfig } from 'vite'
+import vue from '@vitejs/plugin-vue'
+import path from 'path'
+import { viteMockServe } from 'vite-plugin-mock'
+
+// https://vitejs.dev/config/
+export default ({ command }) => {
+  return {
+    plugins: [
+      vue(),
+      viteMockServe({
+        mockPath: 'mock', // 指定 mock 数据文件夹路径
+        supportTs: false, // 启用 ts
+        // command === serve: 由开发服务器调用的插件
+        // command === build: 由 Rollup 调用的插件
+        localEnabled: command === 'serve',
+      }),
+    ],
+    css: {
+      preprocessorOptions: {
+        scss: {
+          additionalData: `@import "@/assets/style/common.scss";`
+        }
+      }
+    },
+    resolve: {
+      alias: {
+        '@': path.resolve(__dirname, 'src'),
+      },
+    },
+    server: {
+      // proxy: {
+      //  '/api': {
+      //    target: 'http://localhost:64368',
+      //    changeOrigin: true,
+      //    rewrite: path => path.replace(/^\/api/, ''),
+      //  },
+      // },
+    },
+  }
+}
+
+```
+
 1. 配置 base 公共基础路径， `vite.config.js`
 
 ```javascript
@@ -42,6 +90,48 @@ export default defineConfig({
 })
 
 ```
+
+
+
+## CSS预处理器
+
+1. 安装对应的CSS处理器，这里以`scss`为例，
+
+`yarn add sass node-sass sass-loader -D `
+
+`package.json`
+
+```json
+{
+  "devDependencies": {
+    "node-sass": "^6.0.1",
+    "sass": "^1.38.1",
+    "sass-loader": "^12.1.0",
+  }
+}
+
+```
+
+2. 配置全局scss，`vite.config.js`
+
+```json
+// https://vitejs.dev/config/
+export default ({ command }) => {
+  return {
+    css: {
+      preprocessorOptions: {
+        scss: {
+          additionalData: `@import "@/assets/style/common.scss";`
+        }
+      }
+    },
+    
+  }
+}
+
+```
+
+
 
 ## eslint
 
@@ -110,7 +200,7 @@ module.exports = {
 
 4. 根目录下新建`.vscode/settings.json`
 
-```
+```json
 {
   // VScode主题配置
   "editor.tabSize": 2,
@@ -483,16 +573,18 @@ export default{
 
 5. 组件中调用接口
 
-```javascript
+```vue
 <script setup>
-import { mockGet } from "@/api";
+import { onMounted } from 'vue'
 
-try {
-  const res = await mockGet()
-  console.log(res, 'res');
-} catch (error) {
-  console.error(error);
-}
+onMounted(async () => {
+  try {
+    const res = await mockGet()
+    console.log(res, 'res');
+  } catch (error) {
+    console.error(error);
+  }
+})
 
 </script>
 

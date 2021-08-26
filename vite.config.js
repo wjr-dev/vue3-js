@@ -16,6 +16,13 @@ export default ({ command }) => {
         localEnabled: command === 'serve',
       }),
     ],
+    css: {
+      preprocessorOptions: {
+        scss: {
+          additionalData: `@import "@/assets/style/common.scss";`
+        }
+      }
+    },
     resolve: {
       alias: {
         '@': path.resolve(__dirname, 'src'),
