@@ -1,3 +1,12 @@
+/*
+ * @Author: your name
+ * @Date: 2021-08-23 16:57:31
+ * @LastEditTime: 2021-08-30 15:29:23
+ * @LastEditors: your name
+ * @Description: 
+ * @FilePath: \vue3\.eslintrc.js
+ * 可以输入预定的版权声明、个性签名、空行等
+ */
 module.exports = {
   root: true,
   env: {
@@ -13,7 +22,7 @@ module.exports = {
     "prettier/prettier": [
       "warn",
       {
-        singleQuote: none,
+        singleQuote: true,
         semi: false,
         trailingComma: "es5",
       },
